@@ -23,12 +23,22 @@ jobs:
 
       - name: Run Checkstyle
         ##TODO
+        run: mvn validate
 
       - name: Upload Checkstyle Result
         ##TODO
+        uses: actions/upload-artifact@v3
+        with:
+          name: checkstyle-report
+          path: target\checkstyle-result.xml
 
       - name: Run Maven Test
         ##TODO
+        run: mvn test
 
       - name: Jacoco Report
         ##TODO
+        uses: actions/upload-artifact@v3
+        with:
+          name: jacoco-report
+          path: target/site/jacoco/jacoco.xml
